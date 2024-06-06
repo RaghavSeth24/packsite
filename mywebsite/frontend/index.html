@@ -54,6 +54,40 @@
             vertical-align: middle; /* Align image vertically */
             margin-left: -10px; /* Move image towards the left */
         }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #333;
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+        .popup img {
+            width: 100px; /* Adjust image size */
+            height: auto;
+            margin: 5px;
+            cursor: pointer; /* Add pointer cursor to images */
+        }
+
+        .popup img:hover {
+            opacity: 0.7; /* Reduce opacity on hover */
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -69,13 +103,25 @@
         <p>This is the main section of your Packsite.</p>
 
         <!-- Two buttons with different actions -->
-        <button class="clickButton" id="blueButton">
+        <div class="clickButton" id="blueButton" onclick="openPopup('blue')">
             <img src="pics/Packimg.png" alt="Blue Button">
-        </button>
+        </div>
 
-        <button class="clickButton" id="greenButton">
+        <div class="clickButton" id="greenButton" onclick="openPopup('green')">
             <img src="pics/Packimg.png" alt="Green Button">
-        </button>
+        </div>
+
+        <!-- Popup container -->
+        <div class="popup" id="popup">
+            <h2>Select a Color</h2>
+            <div class="popup-content">
+                <img src="pics/Card1.png" alt="Image 1" onclick="selectImage('blue')">
+                <img src="pics/Card1.png" alt="Image 2" onclick="selectImage('green')">
+                <img src="pics/Card1.png" alt="Image 3" onclick="selectImage('yellow')">
+                <img src="pics/Card1.png" alt="Image 4" onclick="selectImage('orange')">
+                <img src="pics/Card1.png" alt="Image 5" onclick="selectImage('purple')">
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -84,17 +130,21 @@
 
     <!-- Optional JavaScript -->
     <script>
-        // JavaScript to change background color on button click
-        const blueButton = document.getElementById('blueButton');
-        const greenButton = document.getElementById('greenButton');
+        // JavaScript to show/hide popup
+        function openPopup(color) {
+            document.getElementById('popup').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Disable scrolling when popup is open
+        }
 
-        blueButton.addEventListener('click', function() {
-            document.body.style.backgroundColor = 'blue'; // Change background color to blue
-        });
+        function selectImage(color) {
+            document.body.style.backgroundColor = color; // Change background color
+            closePopup(); // Close the popup
+        }
 
-        greenButton.addEventListener('click', function() {
-            document.body.style.backgroundColor = 'green'; // Change background color to green
-        });
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling when popup is closed
+        }
     </script>
 </body>
 </html>
