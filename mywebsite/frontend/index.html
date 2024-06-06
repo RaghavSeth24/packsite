@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packsite</title>
     <style>
-        /* Add your CSS styles here */
+        /* Global styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #9e3030;
+            background-color: #9e3030; /* Default background color */
+            transition: background-color 0.3s ease; /* Smooth transition for color change */
         }
         header {
             background-color: #333;
@@ -37,6 +38,22 @@
             bottom: 0;
             width: 100%;
         }
+        /* Button styles */
+        .clickButton {
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px;
+            margin: 10px; /* Add margin for spacing between buttons */
+        }
+        /* Image inside the button */
+        .clickButton img {
+            width: 300px; /* Adjust image size */
+            height: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically */
+            margin-left: -10px; /* Move image towards the left */
+        }
     </style>
 </head>
 <body>
@@ -45,25 +62,38 @@
     </header>
 
     <nav>
-        <button id="clickButton">Click Me!</button>
+        <!-- Navigation or other elements -->
     </nav>
 
     <section>
         <p>This is the main section of your Packsite.</p>
+
+        <!-- Two buttons with different actions -->
+        <button class="clickButton" id="blueButton">
+            <img src="pics/Packimg.png" alt="Blue Button">
+        </button>
+
+        <button class="clickButton" id="greenButton">
+            <img src="pics/Packimg.png" alt="Green Button">
+        </button>
     </section>
 
     <footer>
         <p>&copy; 2024 Packsite. All rights reserved.</p>
     </footer>
-    
-    <script>
-        // Select the button element using its ID
-        const button = document.getElementById('clickButton');
 
-        // Add a click event listener to the button
-        button.addEventListener('click', function() {
-            // Change background color of the body
-            document.body.style.backgroundColor = '#3498db'; // Change to your desired color
+    <!-- Optional JavaScript -->
+    <script>
+        // JavaScript to change background color on button click
+        const blueButton = document.getElementById('blueButton');
+        const greenButton = document.getElementById('greenButton');
+
+        blueButton.addEventListener('click', function() {
+            document.body.style.backgroundColor = 'blue'; // Change background color to blue
+        });
+
+        greenButton.addEventListener('click', function() {
+            document.body.style.backgroundColor = 'green'; // Change background color to green
         });
     </script>
 </body>
