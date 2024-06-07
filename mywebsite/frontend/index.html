@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packsite</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         /* Global styles */
         body {
@@ -20,10 +21,11 @@
             text-align: center;
         }
         nav {
-            background-color: #555;
+            background-color: #444;
             color: #fff;
             padding: 10px;
             text-align: center;
+            overflow: hidden;
         }
         section {
             padding: 20px;
@@ -88,39 +90,58 @@
             right: 10px;
             cursor: pointer;
         }
+
+        /* Navbar styles */
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar li {
+            margin: 0 10px; /* Add margin between nav items */
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+        }
     </style>
 </head>
 <body>
-    
-        <h1>Welcome to Packsite!</h1>
-    
-
+    <h1>Welcome to Packsite!</h1>
     <nav class="navbar">
-        <u1>
+        <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="players.html">Players</a></li>
             <li><a href="packs.html">Packs</a></li>
-            
-        </u1>
-        
+        </ul>
     </nav>
     <main>
-        <h3>This is the Home Page</h3>
-        <p>This is where u do stuff</p>
+        <p>This is where you do stuff</p>
     </main>
     <section>
         <p>This is the main section of your Packsite.</p>
-
         <!-- Two buttons with different actions -->
         <div class="clickButton" id="blueButton" onclick="openPopup('blue')">
             <img src="pics/Packimg.png" alt="Blue Button">
         </div>
-
         <div class="clickButton" id="greenButton" onclick="openPopup('green')">
             <img src="pics/Packimg.png" alt="Green Button">
         </div>
-
         <!-- Popup container -->
         <div class="popup" id="popup">
             <h2>Select a Color</h2>
@@ -129,32 +150,4 @@
                 <img src="pics/Card1.png" alt="Image 2" onclick="selectImage('green')">
                 <img src="pics/Card1.png" alt="Image 3" onclick="selectImage('yellow')">
                 <img src="pics/Card1.png" alt="Image 4" onclick="selectImage('orange')">
-                <img src="pics/Card1.png" alt="Image 5" onclick="selectImage('purple')">
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Packsite. All rights reserved.</p>
-    </footer>
-
-    <!-- Optional JavaScript -->
-    <script>
-        // JavaScript to show/hide popup
-        function openPopup(color) {
-            document.getElementById('popup').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Disable scrolling when popup is open
-        }
-
-        function selectImage(color) {
-            document.body.style.backgroundColor = color; // Change background color
-            closePopup(); // Close the popup
-        }
-
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Enable scrolling when popup is closed
-        }
-    </script>
-</body>
-</html>
+                <img src="pics/Card1.png" alt="Image 5" onclick="selectImage('purpl

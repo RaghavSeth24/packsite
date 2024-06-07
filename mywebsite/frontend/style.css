@@ -14,6 +14,7 @@ h1 {
 .navbar {
     background-color: #444;
     overflow: hidden;
+    padding: 10px 0; /* Add padding to navbar */
 }
 
 .navbar ul {
@@ -25,7 +26,7 @@ h1 {
 }
 
 .navbar li {
-    float: left;
+    margin: 0 10px; /* Add margin between nav items */
 }
 
 .navbar a {
@@ -34,11 +35,13 @@ h1 {
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 5px; /* Rounded corners */
 }
 
 .navbar a:hover {
     background-color: #555;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
 }
 
 main {
