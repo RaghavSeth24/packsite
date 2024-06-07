@@ -150,4 +150,28 @@
                 <img src="pics/Card1.png" alt="Image 2" onclick="selectImage('green')">
                 <img src="pics/Card1.png" alt="Image 3" onclick="selectImage('yellow')">
                 <img src="pics/Card1.png" alt="Image 4" onclick="selectImage('orange')">
-                <img src="pics/Card1.png" alt="Image 5" onclick="selectImage('purpl
+                <img src="pics/Card1.png" alt="Image 5" onclick="selectImage('purple')">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Packsite. All rights reserved.</p>
+    </footer>
+    <!-- Optional JavaScript -->
+    <script>
+        // JavaScript to show/hide popup
+        function openPopup(color) {
+            document.getElementById('popup').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Disable scrolling when popup is open
+        }
+        function selectImage(color) {
+            document.body.style.backgroundColor = color; // Change background color
+            closePopup(); // Close the popup
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling when popup is closed
+        }
+    </script>
+</body>
+</html>
