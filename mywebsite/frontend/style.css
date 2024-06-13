@@ -1,22 +1,43 @@
+/* Global styles */
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-}
-
-h1 {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
     margin: 0;
+    padding: 0;
+    background-color: #9e3030; /* Default background color */
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
 }
 
-.navbar {
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
     background-color: #444;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
     overflow: hidden;
-    padding: 10px 0; /* Add padding to navbar */
 }
 
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Navbar styles */
 .navbar ul {
     list-style-type: none;
     padding: 0;
@@ -42,6 +63,37 @@ h1 {
 .navbar a:hover {
     background-color: #555;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Hidden section for packs */
+.packs-section {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.packs-section img {
+    margin: 5px;
+    cursor: pointer; /* Add pointer cursor to images */
+}
+
+.packs-section .large-packimg img {
+    width: 200px; /* Larger size for top images */
+    height: auto;
+}
+
+.packs-section .small-packimg img {
+    width: 100px; /* Smaller size for bottom images */
+    height: auto;
+}
+
+/* Additional styles */
+h1 {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin: 0;
 }
 
 main {
