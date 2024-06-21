@@ -1,40 +1,46 @@
 /* Global styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #9e3030; /* Default background color */
-    transition: background-color 0.3s ease; /* Smooth transition for color change */
+    background-color: #f5f5f5;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: #fff;
-    padding: 10px;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav {
-    background-color: #444;
+    background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding: 10px 0;
     text-align: center;
-    overflow: hidden;
 }
 
 section {
     padding: 20px;
     text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 8px;
 }
 
 footer {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar styles */
@@ -44,65 +50,158 @@ footer {
     margin: 0;
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 .navbar li {
-    margin: 0 10px; /* Add margin between nav items */
+    margin: 0;
 }
 
 .navbar a {
     display: block;
-    color: white;
+    color: #fff;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
     transition: background-color 0.3s, box-shadow 0.3s;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 5px;
 }
 
 .navbar a:hover {
     background-color: #555;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Hidden section for packs */
+/* Hero section */
+.hero-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-section button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero-section button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Packs section */
 .packs-section {
     display: none;
-    text-align: center;
     padding: 20px;
 }
 
 .packs-section img {
     margin: 5px;
-    cursor: pointer; /* Add pointer cursor to images */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.packs-section .large-packimg img {
-    width: 200px; /* Larger size for top images */
+.packs-section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.large-packimg img {
+    width: 200px;
     height: auto;
 }
 
-.packs-section .small-packimg img {
-    width: 100px; /* Smaller size for bottom images */
+.small-packimg img {
+    width: 100px;
     height: auto;
 }
 
-/* Additional styles */
-h1 {
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
     text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    margin: 0;
 }
 
-main {
-    margin: 20px;
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
     padding: 20px;
-    background-color: #f4f4f4;
     border-radius: 8px;
+    max-width: 90%;
 }
 
-h3 {
-    margin-top: 0;
+.popup img {
+    width: 100px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popup img.selected,
+.popup img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid blue;
+}
+
+.popup h3 {
+    margin-bottom: 20px;
+}
+
+.popup .close-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+    
+    .hero-section {
+        padding: 30px 10px;
+    }
+    
+    .packs-section .large-packimg img,
+    .packs-section .small-packimg img {
+        width: 100%;
+    }
 }

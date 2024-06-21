@@ -5,43 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Packsite</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Additional styles for the popup */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 999;
-            text-align: center;
-        }
-
-        .popup-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .popup img {
-            width: 100px; /* Adjust size as needed */
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        .popup img.selected {
-            border: 2px solid blue; /* Example of selected image border */
-        }
-    </style>
 </head>
 <body>
-    <h1>Welcome to Packsite!</h1>
+    <header>
+        <h1>Welcome to Packsite!</h1>
+    </header>
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -51,12 +19,15 @@
         </ul>
     </nav>
     <main>
-        <p>This is where you do stuff</p>
+        <div class="hero-section">
+            <h2>Explore Our Page</h2>
+            <p>Discover the best packs curated just for you.</p>
+            <button onclick="showPacks()">View Packs</button>
+        </div>
     </main>
     <section class="packs-section" id="packsSection">
         <h2>Packs</h2>
         <div class="packs-content">
-            <!-- Larger Packimg buttons -->
             <div class="large-packimg">
                 <img src="pics/Packimg.png" alt="Pack Image 1" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 2" class="pack-img">
@@ -64,7 +35,6 @@
                 <img src="pics/Packimg.png" alt="Pack Image 4" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 5" class="pack-img">
             </div>
-            <!-- Smaller Packimg buttons -->
             <div class="small-packimg">
                 <img src="pics/Packimg.png" alt="Pack Image 6" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 7" class="pack-img">
@@ -77,7 +47,6 @@
             </div>
         </div>
     </section>
-    <!-- Popup for Card1 selection -->
     <div id="popup" class="popup">
         <div class="popup-content" id="popupContent">
             <h3>Select a Card</h3>
@@ -86,12 +55,12 @@
             <img src="pics/Card3.webp" alt="Card3 Image 3" onclick="selectCard('pics/Card3.webp')">
             <img src="pics/Card4.webp" alt="Card4 Image 4" onclick="selectCard('pics/Card4.webp')">
             <img src="pics/Card5.webp" alt="Card5 Image 5" onclick="selectCard('pics/Card5.webp')">
+            <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
     </div>
     <footer>
         <p>&copy; 2024 Packsite. All rights reserved.</p>
     </footer>
-    <!-- Optional JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
