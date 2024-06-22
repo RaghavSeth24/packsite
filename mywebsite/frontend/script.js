@@ -67,6 +67,81 @@ function selectCard(cardImage) {
     document.getElementById('popup').style.display = 'none';
 }
 
+// Function to fetch and display news articles using RSS feed
+const rssFeedUrl = 'https://www.espn.com/espn/rss/nba/news'; // Example RSS feed URL from ESPN
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetchNewsArticles();
+});
+
+function fetchNewsArticles() {
+    fetch(rssFeedUrl)
+        .then(response => response.text())
+        .then(xmlText => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+            const items = xmlDoc.querySelectorAll('item');
+            const articles = [];
+
+            items.forEach(item => {
+                const title = item.querySelector('title').textContent;
+                const description = item.querySelector('description').textContent;
+                const link = item.querySelector('link').textContent;
+                const imageUrl = item.querySelector('enclosure') ? item.querySelector('enclosure').getAttribute('url') : '';
+
+                articles.push({ title, description, link, imageUrl });
+            });
+
+            displayNewsArticles(articles);
+        })
+        .catch(error => {
+            console.error('Error fetching RSS feed:', error);
+            displayErrorMessage();
+        });
+}
+
+function displayNewsArticles(articles) {
+    const newsContainer = document.getElementById('news-articles');
+    newsContainer.innerHTML = '';
+
+    if (articles.length === 0) {
+        displayErrorMessage();
+        return;
+    }
+
+    articles.forEach(article => {
+        const articleElement = document.createElement('div');
+        articleElement.classList.add('news-article');
+
+        if (article.imageUrl) {
+            const articleImage = document.createElement('img');
+            articleImage.src = article.imageUrl;
+            articleImage.alt = article.title; // Alt text can be article-specific or a general description
+            articleImage.style.width = '400px'; // Set a specific width
+            articleImage.style.height = 'auto'; // Maintain aspect ratio
+            articleImage.style.display = 'block'; // Prevent inline spacing issues
+            articleImage.style.margin = '0 auto'; // Center the image horizontally
+            articleElement.appendChild(articleImage);
+        }
+
+        const articleTitle = document.createElement('h4');
+        articleTitle.textContent = article.title;
+        articleElement.appendChild(articleTitle);
+
+        const articleDescription = document.createElement('p');
+        articleDescription.textContent = article.description;
+        articleElement.appendChild(articleDescription);
+
+        newsContainer.appendChild(articleElement);
+    });
+}
+
+function displayErrorMessage() {
+    const newsContainer = document.getElementById('news-articles');
+    newsContainer.innerHTML = '<p>Failed to load news articles.</p>';
+}
+
+
 // Add event listeners to PACKIMG elements
 document.addEventListener('DOMContentLoaded', function() {
     let packImgs = document.querySelectorAll('.pack-img');
