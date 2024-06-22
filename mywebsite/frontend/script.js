@@ -25,7 +25,7 @@ const cardLibrary = [
     { src: 'pics/Card17.webp', traits: ['SG', 'SF'] },
     { src: 'pics/Card18.webp', traits: ['SG', 'SF'] },
     { src: 'pics/Card19.webp', traits: ['PF'] },
-    { src: 'pics/Card20.png', traits: ['PG', 'SG'] },
+    { src: 'pics/Card20.webp', traits: ['PG', 'SG'] },
     { src: 'pics/Card21.webp', traits: ['PG', 'SG'] },
     { src: 'pics/Card22.webp', traits: ['SG', 'SF'] },
     { src: 'pics/Card23.webp', traits: ['PG', 'SG'] },
