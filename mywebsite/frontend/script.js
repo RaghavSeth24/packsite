@@ -99,7 +99,10 @@ function selectCard(cardImage) {
 const rssFeedUrl = 'https://www.espn.com/espn/rss/nba/news'; // Example RSS feed URL from ESPN
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetchNewsArticles();
+    // Check if the current page is 'news.html' and fetch news articles if so
+    if (window.location.pathname.includes('news.html')) {
+        fetchNewsArticles(); // Fetch and display news articles
+    }
 });
 
 function fetchNewsArticles() {
