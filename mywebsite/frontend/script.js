@@ -168,6 +168,25 @@ function displayErrorMessage() {
     const newsContainer = document.getElementById('news-articles');
     newsContainer.innerHTML = '<p>Failed to load news articles.</p>';
 }
+function showHome() {
+    // Hide the news section and its content
+    document.querySelector('.hero-section').style.display = 'block'; // Show the hero section
+    document.querySelector('main').style.display = 'block'; // Show the main content
+    document.getElementById('packsSection').style.display = 'none'; // Hide the packs section
+    document.getElementById('news-articles').innerHTML = '<p>Loading news articles...</p>'; // Clear news articles content
+    document.getElementById('popup').style.display = 'none'; // Hide any open popups if applicable
+}
+// JavaScript to show news section
+function showNews() {
+    document.querySelector('.hero-section').style.display = 'none'; // Hide the hero section
+    document.getElementById('packsSection').style.display = 'none'; // Hide the packs section
+
+    // Display the main content section
+    document.querySelector('main').style.display = 'block';
+
+    // Optionally, you can fetch and display news articles here
+    fetchNewsArticles(); // Fetch and display news articles
+}
 
 
 // Add event listeners to PACKIMG elements

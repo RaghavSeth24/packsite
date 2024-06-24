@@ -14,8 +14,8 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="team.html">Team</a></li>
-            <li><a href="players.html">Players</a></li>
-            <li><a href="#" onclick="showPacks()">Packs</a></li>
+            <li><a href="news.html" onclick="showNews(); return false;">News</a></li>
+            <li><a href="packs.html" onclick="showPacks(); return false;">Packs</a></li>
         </ul>
     </nav>
     <main>
@@ -24,18 +24,22 @@
             <p>Discover the best packs curated just for you.</p>
             <button onclick="showPacks()">View Packs</button>
         </div>
-        <!-- Add the news section here -->
-        <section class="news-section">
+        
+        <!-- News Section -->
+        <section class="news-section" id="newsSection">
             <h2>Basketball Player Trades and Status Conditions</h2>
             <div id="news-articles">
                 <p>Loading news articles...</p>
+                <!-- News articles will be dynamically loaded here -->
             </div>
         </section>
+        
     </main>
     <section class="packs-section" id="packsSection">
         <h2>Packs</h2>
         <div class="packs-content">
             <div class="large-packimg">
+                <!-- Large pack images -->
                 <img src="pics/Packimg.png" alt="Pack Image 1" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 2" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 3" class="pack-img">
@@ -43,6 +47,7 @@
                 <img src="pics/Packimg.png" alt="Pack Image 5" class="pack-img">
             </div>
             <div class="small-packimg">
+                <!-- Small pack images -->
                 <img src="pics/Packimg.png" alt="Pack Image 6" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 7" class="pack-img">
                 <img src="pics/Packimg.png" alt="Pack Image 8" class="pack-img">
@@ -54,6 +59,8 @@
             </div>
         </div>
     </section>
+    
+    <!-- Popup Section -->
     <div id="popup" class="popup">
         <div class="popup-content" id="popupContent">
             <h3>Select a Card</h3>
@@ -65,9 +72,11 @@
             <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
     </div>
+    
     <footer>
         <p>&copy; 2024 Packsite. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
