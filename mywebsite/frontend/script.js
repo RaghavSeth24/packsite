@@ -6,51 +6,51 @@ function showPacks() {
 
 // Card library with traits
 const cardLibrary = [
-    { src: 'pics/Card1.png', traits: ['PG', 'SG'] },
-    { src: 'pics/Card2.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card3.webp', traits: ['PG', 'SG'] },
+    { src: 'pics/Card1.png', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card2.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card3.webp', traits: ['PG', 'SG'], selected: false },
     { src: 'pics/Card4.webp', traits: ['SG', 'SF'] },
-    { src: 'pics/Card5.webp', traits: ['SF'] },
-    { src: 'pics/Card6.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card7.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card8.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card9.webp', traits: ['SF', 'PF'] },
-    { src: 'pics/Card10.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card11.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card12.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card13.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card14.webp', traits: ['PG'] },
-    { src: 'pics/Card15.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card16.webp', traits: ['PG', 'SF'] },
-    { src: 'pics/Card17.webp', traits: ['SG', 'SF'] },
-    { src: 'pics/Card18.webp', traits: ['SG', 'SF'] },
-    { src: 'pics/Card19.webp', traits: ['PF'] },
-    { src: 'pics/Card20.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card21.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card22.webp', traits: ['SG', 'SF'] },
-    { src: 'pics/Card23.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card24.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card25.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card26.webp', traits: ['SG', 'SF'] },
-    { src: 'pics/Card27.webp', traits: ['PG', 'SG'] },
-    { src: 'pics/Card28.webp', traits: ['SF', 'PF'] },
-    { src: 'pics/Card29.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card30.webp', traits: ['SG', 'SF'] },
-    { src: 'pics/Card31.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card32.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card33.webp', traits: ['PF', 'C'] },
-    { src: 'pics/Card34.webp', traits: ['SF', 'SG'] },
-    { src: 'pics/Card35.webp', traits: ['C', 'PF'] },
-    { src: 'pics/Card36.webp', traits: ['SF', 'SG'] },
-    { src: 'pics/Card37.webp', traits: ['C', 'PF'] },
-    { src: 'pics/Card38.png', traits: ['SF', 'SG'] },
-    { src: 'pics/Card39.webp', traits: ['SF', 'SG'] },
-    { src: 'pics/Card40.png', traits: ['C', 'PF'] },
-    { src: 'pics/Card41.png', traits: ['SF', 'SG'] },
-    { src: 'pics/Card42.png', traits: ['C', 'PF'] },
-    { src: 'pics/Card43.png', traits: ['C', 'PF'] },
-    { src: 'pics/Card44.png', traits: ['C', 'PF'] },
-    { src: 'pics/Card46.webp', traits: ['SF', 'SG'] },
+    { src: 'pics/Card5.webp', traits: ['SF'], selected: false },
+    { src: 'pics/Card6.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card7.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card8.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card9.webp', traits: ['SF', 'PF'], selected: false },
+    { src: 'pics/Card10.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card11.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card12.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card13.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card14.webp', traits: ['PG'], selected: false },
+    { src: 'pics/Card15.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card16.webp', traits: ['PG', 'SF'], selected: false },
+    { src: 'pics/Card17.webp', traits: ['SG', 'SF'], selected: false },
+    { src: 'pics/Card18.webp', traits: ['SG', 'SF'], selected: false },
+    { src: 'pics/Card19.webp', traits: ['PF'], selected: false },
+    { src: 'pics/Card20.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card21.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card22.webp', traits: ['SG', 'SF'], selected: false },
+    { src: 'pics/Card23.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card24.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card25.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card26.webp', traits: ['SG', 'SF'], selected: false },
+    { src: 'pics/Card27.webp', traits: ['PG', 'SG'], selected: false },
+    { src: 'pics/Card28.webp', traits: ['SF', 'PF'], selected: false },
+    { src: 'pics/Card29.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card30.webp', traits: ['SG', 'SF'], selected: false },
+    { src: 'pics/Card31.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card32.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card33.webp', traits: ['PF', 'C'], selected: false },
+    { src: 'pics/Card34.webp', traits: ['SF', 'SG'], selected: false },
+    { src: 'pics/Card35.webp', traits: ['C', 'PF'], selected: false },
+    { src: 'pics/Card36.webp', traits: ['SF', 'SG'], selected: false },
+    { src: 'pics/Card37.webp', traits: ['C', 'PF'], selected: false },
+    { src: 'pics/Card38.png', traits: ['SF', 'SG'], selected: false },
+    { src: 'pics/Card39.webp', traits: ['SF', 'SG'], selected: false },
+    { src: 'pics/Card40.png', traits: ['C', 'PF'], selected: false },
+    { src: 'pics/Card41.png', traits: ['SF', 'SG'], selected: false },
+    { src: 'pics/Card42.png', traits: ['C', 'PF'], selected: false },
+    { src: 'pics/Card43.png', traits: ['C', 'PF'], selected: false },
+    { src: 'pics/Card44.png', traits: ['C', 'PF'], selected: false },
+    { src: 'pics/Card46.webp', traits: ['SF', 'SG'], selected: false },
     { src: 'pics/Card47.webp', traits: ['SF', 'SG'] },
     { src: 'pics/Card48.webp', traits: ['PF', 'SF'] }
 ];
@@ -214,8 +214,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     showPopup('PF');
                 } else if (index === 4) { // For Pack Image 5
                     showPopup('C');
+                } else if (index >= 5 && index <= 12) { // For Pack Image 6 to 13 (index 5 to 12)
+                    showRandomCards();
                 }
             }
         });
     });
 });
+
+// Function to show 5 random cards
+function showRandomCards() {
+    // Clear previous popup content
+    const popupContent = document.getElementById('popupContent');
+    popupContent.innerHTML = '<h3>Select a Card</h3>';
+
+    // Get 5 random cards from the library
+    const randomCards = getRandomCards(cardLibrary, 5);
+
+    // Add selected cards to popup
+    randomCards.forEach(card => {
+        const img = document.createElement('img');
+        img.src = card.src;
+        img.onclick = function() { selectCard(card.src); };
+        popupContent.appendChild(img);
+    });
+
+    // Display the popup
+    document.getElementById('popup').style.display = 'block';
+}
