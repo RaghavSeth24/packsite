@@ -163,14 +163,136 @@ function displayNewsArticles(articles) {
         articleDescription.textContent = article.description;
         articleElement.appendChild(articleDescription);
 
+        // Chat section
+        const chatSection = document.createElement('div');
+        chatSection.classList.add('chat-section');
+
+        const chatHeader = document.createElement('h5');
+        chatHeader.textContent = 'Comments';
+        chatSection.appendChild(chatHeader);
+
+        const commentList = document.createElement('div');
+        commentList.classList.add('comment-list');
+        chatSection.appendChild(commentList);
+
+        const commentForm = document.createElement('form');
+        commentForm.classList.add('comment-form');
+        
+        const commentInput = document.createElement('input');
+        commentInput.type = 'text';
+        commentInput.placeholder = 'Write a comment...';
+        commentForm.appendChild(commentInput);
+        
+        const submitButton = document.createElement('button');
+        submitButton.type = 'submit';
+        submitButton.textContent = 'Submit';
+        commentForm.appendChild(submitButton);
+
+        chatSection.appendChild(commentForm);
+        articleElement.appendChild(chatSection);
+
         newsContainer.appendChild(articleElement);
+
+        // Event listener for submitting comments
+        commentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const commentText = commentInput.value;
+            if (commentText) {
+                const comment = createCommentElement(commentText);
+                commentList.appendChild(comment);
+                commentInput.value = '';
+            }
+        });
     });
 }
+
+function createCommentElement(text) {
+    const commentElement = document.createElement('div');
+    commentElement.classList.add('comment');
+
+    const commentText = document.createElement('p');
+    commentText.textContent = text;
+    commentElement.appendChild(commentText);
+
+    const replyButton = document.createElement('button');
+    replyButton.textContent = 'Reply';
+    replyButton.classList.add('reply-button');
+    commentElement.appendChild(replyButton);
+
+    const replyForm = document.createElement('form');
+    replyForm.classList.add('reply-form');
+
+    const replyInput = document.createElement('input');
+    replyInput.type = 'text';
+    replyInput.placeholder = 'Write a reply...';
+    replyForm.appendChild(replyInput);
+
+    const replySubmitButton = document.createElement('button');
+    replySubmitButton.type = 'submit';
+    replySubmitButton.textContent = 'Submit';
+    replyForm.appendChild(replySubmitButton);
+
+    commentElement.appendChild(replyForm);
+    replyForm.style.display = 'none'; // Initially hide the reply form
+
+    // Toggle reply form visibility
+    replyButton.addEventListener('click', function() {
+        replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Check if there are existing replies
+    let replies = []; // Array to store existing replies
+
+    // Show more button for existing replies
+    const showMoreButton = document.createElement('button');
+    showMoreButton.textContent = 'Show more';
+    showMoreButton.classList.add('show-more-button');
+    showMoreButton.style.display = 'none'; // Initially hide 'Show more' button
+    commentElement.appendChild(showMoreButton);
+
+    showMoreButton.addEventListener('click', function() {
+        replies.forEach(reply => {
+            reply.style.display = reply.style.display === 'none' ? 'block' : 'none';
+        });
+        showMoreButton.textContent = showMoreButton.textContent === 'Show more' ? 'Show less' : 'Show more';
+    });
+
+    replyForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const replyText = replyInput.value;
+        if (replyText) {
+            const reply = createReplyElement(replyText);
+            replies.push(reply); // Add the reply to the replies array
+            commentElement.appendChild(reply);
+            replyInput.value = '';
+            replyForm.style.display = 'none';
+            // Show 'Show more' button when there are replies
+            if (replies.length > 0) {
+                showMoreButton.style.display = 'inline-block';
+            }
+        }
+    });
+
+    return commentElement;
+}
+
+function createReplyElement(text) {
+    const replyElement = document.createElement('div');
+    replyElement.classList.add('reply');
+    
+    const replyText = document.createElement('p');
+    replyText.textContent = text;
+    replyElement.appendChild(replyText);
+
+    return replyElement;
+}
+
 
 function displayErrorMessage() {
     const newsContainer = document.getElementById('news-articles');
     newsContainer.innerHTML = '<p>Failed to load news articles.</p>';
 }
+
 function showHome() {
     // Hide the news section and its content
     document.querySelector('.hero-section').style.display = 'block'; // Show the hero section
@@ -179,6 +301,7 @@ function showHome() {
     document.getElementById('news-articles').innerHTML = '<p>Loading news articles...</p>'; // Clear news articles content
     document.getElementById('popup').style.display = 'none'; // Hide any open popups if applicable
 }
+
 // JavaScript to show news section
 function showNews() {
     document.querySelector('.hero-section').style.display = 'none'; // Hide the hero section
